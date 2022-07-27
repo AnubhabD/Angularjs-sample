@@ -11,7 +11,10 @@ export class AppComponent {
   num1: number = 20;
   num2: number = 40;
 
+  num3!: number;
+
   receiveChildData(data: any) {
     console.log(data);
+    this.num3 = data;
   }
 }
