@@ -13,7 +13,7 @@ export class AppComponent {
 
   num3!: number;
 
-  receiveChildData(data: any) {
+  receiveChildData(data: number) {
     console.log(data);
     this.num3 = data;
   }

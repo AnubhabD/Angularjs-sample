@@ -8,8 +8,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserComponent implements OnInit {
   constructor() {}
 
-  Method: any = ['Addition', 'Subtraction', 'Multiplication', 'Division'];
-
   @Input()
   num1!: number;
 
