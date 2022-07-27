@@ -8,12 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Basic Calculator';
 
-  num1: number = 10;
-  num2: number = 20;
+  num1: number = 20;
+  num2: number = 40;
 
   receiveChildData(data: any) {
     console.log(data);
   }
-
-  // onsubmit(){}
 }
