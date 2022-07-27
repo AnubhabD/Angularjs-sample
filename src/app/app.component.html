@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <h1>{{num1}}</h1>
+  </div>
+  <div>
+    <h1>{{num2}}</h1>
+  </div>
+</div>
+<hr>
+<app-user [num1]="num1" [num2]="num2" (outputFromChild)="receiveChildData($event)"></app-user>
+<router-outlet></router-outlet>
