@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserComponent implements OnInit {
   constructor() {}
 
+  Method: any = ['Addition', 'Subtraction', 'Multiplication', 'Division'];
+
   @Input()
   num1!: number;
 
@@ -17,6 +19,21 @@ export class UserComponent implements OnInit {
   @Output()
   outputFromChild: EventEmitter<number> = new EventEmitter();
   num3!: number;
+
+  changeMethod(value: string) {
+    if(value === 'add'){
+      this.add();
+    }
+    if(value === 'sub'){
+      this.sub();
+    }
+    if(value === 'multiply'){
+      this.multiply();
+    }
+    if(value === 'divide'){
+      this.divide();
+    }
+  }
 
   add() {
     this.num3 = this.num1 + this.num2;

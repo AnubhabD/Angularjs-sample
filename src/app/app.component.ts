@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Basic Calculator';
 
-  num1: number = 20;
-  num2: number = 40;
+  num1!: number;
+  num2!: number;
 
   num3!: number;
 
