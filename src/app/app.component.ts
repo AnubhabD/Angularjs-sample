@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Basic Calculator';
 
-  // num1!: number;
-  // num2!: number;
+  num1!: number;
+  num2!: number;
 
-  // num3!: number;
+  num3!: number;
 
-  // receiveChildData(data: number) {
-  //   console.log(data);
-  //   this.num3 = data;
-  // }
+  receiveChildData(data: number): void {
+    console.log(data);
+    this.num3 = data;
+  }
 }

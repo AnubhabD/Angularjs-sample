@@ -8,8 +8,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserComponent implements OnInit {
   constructor() {}
 
-  // Method: any = ['Addition', 'Subtraction', 'Multiplication', 'Division'];
-
   @Input()
   num1!: number;
 
@@ -20,7 +18,7 @@ export class UserComponent implements OnInit {
   outputFromChild: EventEmitter<number> = new EventEmitter();
   num3!: number;
 
-  changeMethod(value: string) {
+  changeMethod(value: string): void {
     if(value === 'add'){
       this.add();
     }
@@ -35,32 +33,40 @@ export class UserComponent implements OnInit {
     }
   }
 
-  // onClick(){
-  //   if(this.Method[0] === 'Addition'){}}
-
-  add() {
+  add(): number {
     this.num3 = this.num1 + this.num2;
     this.outputFromChild.emit(this.num3);
     return this.num3;
   }
 
-  sub() {
+  sub(): number {
     this.num3 = this.num1 - this.num2;
     this.outputFromChild.emit(this.num3);
     return this.num3;
   }
 
-  multiply() {
+  multiply(): number {
     this.num3 = this.num1 * this.num2;
     this.outputFromChild.emit(this.num3);
     return this.num3;
   }
 
-  divide() {
+  divide(): number {
     this.num3 = this.num1 / this.num2;
     this.outputFromChild.emit(this.num3);
     return this.num3;
   }
+
+  // onClick(): number{
+  //   if(this.num1 > 0 && this.num2 > 0){
+  //     this.num3 = this.num1 * this.num2;
+  //   }
+  //   if(this.num1 < 0 || this.num2 < 0){
+  //     this.num3 = this.num1 / this.num2;
+  //   }
+  //   this.outputFromChild.emit(this.num3);
+  //   return this.num3;
+  // }
 
   ngOnInit(): void {}
 }

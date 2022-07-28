@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   title = 'Radio button in Angular';
-  selectedButton!: string;
+  selectedButton: string = 'fruits';
 
   constructor() {}
 
