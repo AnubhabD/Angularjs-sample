@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserComponent implements OnInit {
   constructor() {}
 
+  // Method: any = ['Addition', 'Subtraction', 'Multiplication', 'Division'];
+
   @Input()
   num1!: number;
 
@@ -32,6 +34,9 @@ export class UserComponent implements OnInit {
       this.divide();
     }
   }
+
+  // onClick(){
+  //   if(this.Method[0] === 'Addition'){}}
 
   add() {
     this.num3 = this.num1 + this.num2;

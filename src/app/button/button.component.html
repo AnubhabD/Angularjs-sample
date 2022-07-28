@@ -1,0 +1,38 @@
+<div>
+  <div>
+    <h1>{{ title }}</h1>
+    <div>
+      <input
+        type="radio"
+        value="fruits"
+        name="radio"
+        [(ngModel)]="selectedButton"
+      />
+      <label for="fruits">Fruits</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        value="vegetables"
+        name="radio"
+        [(ngModel)]="selectedButton"
+      />
+      <label for="vegetables">Vegetables</label>
+    </div>
+  </div>
+  <br />
+  <div>
+    <div *ngIf="selectedButton == 'fruits'">
+      <div *ngFor="let opt of options.fruits">
+        <h3>{{ opt.item }}</h3>
+        <img src="{{ opt.img }}" width="200" />
+      </div>
+    </div>
+    <div *ngIf="selectedButton == 'vegetables'">
+      <div *ngFor="let opt of options.vegetables">
+        <h3>{{ opt.item }}</h3>
+        <img src="{{ opt.img }}" />
+      </div>
+    </div>
+  </div>
+</div>
