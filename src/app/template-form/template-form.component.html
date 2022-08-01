@@ -1,0 +1,19 @@
+<h1>{{ Title }}</h1>
+<form #userForm="ngForm" name="form" (ngSubmit)="name.form.valid && onSubmitForm(userForm.value)">
+  <div style="margin-bottom: 10px">
+    <label for="name">Name </label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)] = "model.name" [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required/>
+    <div *ngIf="userForm.submitted && name.invalid">
+    <div *ngIf="name.errors.required">Name is required</div>
+    </div>
+  </div>
+  <div style="margin-bottom: 10px">
+    <label for="email">Email </label>
+    <input type="text" name="email" ngModel required/>
+  </div>
+  <div style="margin-bottom: 10px">
+    <label for="phoneNumber">Phone Number </label>
+    <input type="text" name="phoneNumber" ngModel required/>
+  </div>
+  <button type="submit">Submit</button>
+</form>

@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { ButtonComponent } from './button/button.component';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    ButtonComponent
+    ButtonComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnChanges {
   constructor() {}
 
   @Input()
@@ -66,6 +66,16 @@ export class UserComponent implements OnInit {
     }
     this.outputFromChild.emit(this.num3);
     return this.num3;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // if(changes[this.num1]){
+    //   this.num1 = changes[this.num1].currentValue;
+    // }
+    // if(changes[this.num2]){
+    //   this.num2 = changes[this.num2].currentValue;
+    // }
+    console.log(changes);
   }
 
   ngOnInit(): void {}
