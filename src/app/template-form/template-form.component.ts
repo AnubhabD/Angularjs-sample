@@ -7,22 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateFormComponent implements OnInit {
 
-  Title = 'Form Validation';
+  Title = 'Template Driven Form';
 
   model: any = {};
 
   constructor() { }
 
-  onSubmitForm(data: any) {
-    // if(this.form.value){
-    //   console.log(this.form.value);
-    // }else{
-    //   throw console.error("value is not provided");
-    // }
-    console.log(data);
+  onSubmitForm() {
+    console.log(this.model);
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,19 +1,66 @@
-<h1>{{ Title }}</h1>
-<form #userForm="ngForm" name="form" (ngSubmit)="name.form.valid && onSubmitForm(userForm.value)">
-  <div style="margin-bottom: 10px">
-    <label for="name">Name </label>
-    <input type="text" name="name" #name="ngModel" [(ngModel)] = "model.name" [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required/>
-    <div *ngIf="userForm.submitted && name.invalid">
-    <div *ngIf="name.errors.required">Name is required</div>
+<div class="container">
+  <h1>{{ Title }}</h1>
+  <form
+    #userForm="ngForm"
+    name="form"
+    (ngSubmit)="userForm.form.valid && onSubmitForm()"
+    novalidate
+  >
+    <div style="margin-bottom: 10px">
+      <label for="name">Name </label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="model.name"
+        [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }"
+        required
+      />
+      <div *ngIf="userForm.submitted && name.invalid">
+        <div *ngIf="name?.errors?.['required']">Name is required</div>
+      </div>
     </div>
-  </div>
-  <div style="margin-bottom: 10px">
-    <label for="email">Email </label>
-    <input type="text" name="email" ngModel required/>
-  </div>
-  <div style="margin-bottom: 10px">
-    <label for="phoneNumber">Phone Number </label>
-    <input type="text" name="phoneNumber" ngModel required/>
-  </div>
-  <button type="submit">Submit</button>
-</form>
+    <div style="margin-bottom: 10px">
+      <label for="email">Email </label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        #email="ngModel"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        [(ngModel)]="model.email"
+        [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }"
+        required
+      />
+      <div *ngIf="userForm.submitted && email.invalid">
+        <div *ngIf="email?.errors?.['required']">Email is required</div>
+        <div *ngIf="email?.errors?.['pattern']">Email is invalid</div>
+      </div>
+    </div>
+    <div style="margin-bottom: 10px">
+      <label for="phoneNumber">Phone Number </label>
+      <input
+        type="text"
+        class="form-control"
+        name="phoneNumber"
+        #phoneNumber="ngModel"
+        pattern="[0-9]{1}[0-9]{9}"
+        [(ngModel)]="model.phoneNumber"
+        [ngClass]="{
+          'is-invalid': userForm.submitted && phoneNumber.invalid
+        }"
+        required
+      />
+      <div *ngIf="userForm.submitted && phoneNumber.invalid">
+        <div *ngIf="phoneNumber?.errors?.['required']">
+          Phone Number is required
+        </div>
+        <div *ngIf="phoneNumber?.errors?.['pattern']">
+          Phone number must be of 10 digits
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
