@@ -19,5 +19,6 @@ export class ReactiveFormOutputsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
+    //console.log();
   }
 }
