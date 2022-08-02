@@ -67,11 +67,9 @@
     </div>
     <button class="btn btn-primary" style="width: 500px">Submit</button>
   </form>
-  <pre style="margin-top: 50px; border: 1px solid red; width: 500px">{{ userForm.value | json }}</pre>
-  <!-- <div *ngIf="submitted && userForm.valid"> -->
-  <app-reactive-form-outputs [data]="sendData"></app-reactive-form-outputs>
-<!-- </div> -->
+  <div *ngIf="submitted">
+    <app-reactive-form-outputs [data]="sendDataToChild"></app-reactive-form-outputs>
+  </div>
 </div>
-
 
 <!-- [disabled] = "!userForm.valid" -->

@@ -1,13 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
-
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 @Component({
   selector: 'app-reactive-form-outputs',
   templateUrl: './reactive-form-outputs.component.html',
   styleUrls: ['./reactive-form-outputs.component.scss'],
 })
-export class ReactiveFormOutputsComponent implements OnInit {
-
+export class ReactiveFormOutputsComponent implements OnInit, OnChanges {
   @Input()
   data!: Partial<{
     name: string | null;
@@ -17,8 +20,12 @@ export class ReactiveFormOutputsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.data);
-    //console.log();
+  ngOnInit(): void {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.data.name && this.data.email && this.data.phoneNumber) {
+      console.log(this.data);
+    }
+    console.log(changes);
   }
 }

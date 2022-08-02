@@ -8,9 +8,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit {
   Title = 'Reactive Form';
-  submitted:boolean = false;
+  submitted: boolean = false;
 
-  sendData!: Partial<{
+  sendDataToChild!: Partial<{
     name: string | null;
     email: string | null;
     phoneNumber: string | null;
@@ -29,12 +29,10 @@ export class ReactiveFormComponent implements OnInit {
       ]),
     ],
   });
-
-  onSubmitForm(): void {
-    this.submitted = true;
-    this.sendData = this.userForm.value;
-    console.log(this.userForm.value);
-  }
-
   ngOnInit(): void {}
+
+  onSubmitForm() {
+    this.sendDataToChild = this.userForm.value;
+    this.submitted = true;
+  }
 }
