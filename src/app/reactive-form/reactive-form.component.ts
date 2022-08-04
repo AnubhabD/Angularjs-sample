@@ -20,7 +20,13 @@ export class ReactiveFormComponent implements OnInit {
 
   userForm = this.formBuilder.group({
     name: ['', Validators.compose([Validators.required])],
-    email: ['', Validators.compose([Validators.required, Validators.email])],
+    email: [
+      '',
+      Validators.compose([
+        Validators.required,
+        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      ]),
+    ],
     phoneNumber: [
       '',
       Validators.compose([

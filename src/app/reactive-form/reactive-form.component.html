@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="form">
   <h1>{{ Title }}</h1>
   <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
     <div style="margin-bottom: 10px; width: 500px">
@@ -37,7 +37,7 @@
         <div *ngIf="userForm.controls.email.errors?.['required']">
           Please enter email
         </div>
-        <div *ngIf="userForm.controls.email.errors?.['email']">
+        <div *ngIf="userForm.controls.email.errors?.['pattern']">
           Please enter a valid email
         </div>
       </div>
@@ -65,10 +65,23 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-primary" style="width: 500px">Submit</button>
+    <button class="btn btn-primary" style="width: 500px; margin-bottom: 10px">
+      Submit
+    </button>
   </form>
-  <div *ngIf="submitted">
-    <app-reactive-form-outputs [data]="sendDataToChild"></app-reactive-form-outputs>
+  <div *ngIf="submitted && userForm.valid">
+    <app-reactive-form-outputs
+      [data]="sendDataToChild"
+    ></app-reactive-form-outputs>
+  </div>
+  <div>
+    <button>
+      <a routerLink="/templateForm" style="text-decoration: none; color: black">
+        Template Form
+      </a>
+    </button>
+
+    <router-outlet></router-outlet>
   </div>
 </div>
 
