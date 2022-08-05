@@ -13,11 +13,11 @@ import {
 })
 export class ReactiveFormOutputsComponent implements OnInit, OnChanges {
   @Input()
-  data!: {
-    name: string;
-    email: string;
-    phoneNumber: string;
-  };
+  data!: Partial<{
+    name: string | null;
+    email: string | null;
+    phoneNumber: string | null;
+  }>;
 
   constructor() {}
 
