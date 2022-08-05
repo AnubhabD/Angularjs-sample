@@ -5,6 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { formInput } from '../interfaces/reactive-form.interface';
 
 @Component({
   selector: 'app-reactive-form-outputs',
@@ -14,18 +15,14 @@ import {
 export class ReactiveFormOutputsComponent implements OnInit, OnChanges {
 
   @Input()
-  data!: Partial<{
-    name: string | null;
-    email: string | null;
-    phoneNumber: string | null;
-  }>;
+  data!: Partial<formInput>;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.data.name && this.data.email && this.data.phoneNumber) {
+    if (this.data) {
       console.log(this.data);
     }
     console.log(changes);
