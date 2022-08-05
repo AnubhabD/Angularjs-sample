@@ -10,11 +10,16 @@ export class ReactiveFormComponent implements OnInit {
   Title = 'Reactive Form';
   submitted: boolean = false;
 
-  sendDataToChild!: Partial<{
-    name: string | null;
-    email: string | null;
-    phoneNumber: string | null;
-  }>;
+  sendDataToChild: any;
+  // {
+  //   name: string;
+  //   email: string;
+  //   phoneNumber: string;
+  // } = {
+  //   name: '',
+  //   email: '',
+  //   phoneNumber: '',
+  // };
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -35,10 +40,21 @@ export class ReactiveFormComponent implements OnInit {
       ]),
     ],
   });
+
   ngOnInit(): void {}
 
   onSubmitForm() {
-    this.sendDataToChild = this.userForm.value;
+    if (this.userForm.valid) {
+      this.sendDataToChild = this.userForm.value;
+
+      localStorage.setItem('datas', JSON.stringify(this.sendDataToChild));
+    }
     this.submitted = true;
+  }
+
+  onLogoutForm() {
+    // this.sendDataToChild = null;
+    localStorage.clear();
+    alert('You have succesfully logged out');
   }
 }

@@ -12,20 +12,19 @@ import {
   styleUrls: ['./reactive-form-outputs.component.scss'],
 })
 export class ReactiveFormOutputsComponent implements OnInit, OnChanges {
-
   @Input()
-  data!: Partial<{
-    name: string | null;
-    email: string | null;
-    phoneNumber: string | null;
-  }>;
+  data!: {
+    name: string;
+    email: string;
+    phoneNumber: string;
+  };
 
   constructor() {}
 
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.data.name && this.data.email && this.data.phoneNumber) {
+    if (this.data) {
       console.log(this.data);
     }
     console.log(changes);
