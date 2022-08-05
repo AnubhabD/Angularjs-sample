@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-// import { formInput } from '../interfaces/reactive-form.interface';
+
+import { formInput } from '../interfaces/reactive-form.interface';
 
 @Component({
   selector: 'app-reactive-form',
@@ -11,11 +12,7 @@ export class ReactiveFormComponent implements OnInit {
   Title = 'Reactive Form';
   submitted: boolean = false;
 
-  sendDataToChild!: Partial<{
-    name: string | null;
-    email: string| null;
-    phoneNumber: string | null;
-  }>;
+  sendDataToChild!: Partial<formInput>;
 
   constructor(private formBuilder: FormBuilder) {}
 

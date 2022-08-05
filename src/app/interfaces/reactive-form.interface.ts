@@ -1,5 +1,5 @@
 export interface formInput {
-    name: string,
-    email: string,
-    phoneNumber: string
+    name: string | null,
+    email: string | null,
+    phoneNumber: string | null,
 }

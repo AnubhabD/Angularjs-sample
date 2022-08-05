@@ -28,7 +28,6 @@ const routes: Routes = [
     component: TemplateFormComponent,
   },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
