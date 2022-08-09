@@ -3,17 +3,24 @@ import { Injectable } from '@angular/core';
 
 import { ApiData } from '../interfaces/api.interface';
 
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-   url = 'https://jsonplaceholder.typicode.com/users';
+
+  url = 'https://jsonplaceholder.typicode.com/users';
 
   constructor(private http: HttpClient) {}
 
   getData(): Observable<ApiData[]> {
-    return this.http.get<ApiData[]>(this.url);
+    const data = this.http.get<ApiData[]>(this.url).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      })
+    );
+    return data;
   }
 }
