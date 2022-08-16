@@ -14,6 +14,9 @@ import { ReactiveFormOutputsComponent } from './reactive-form-outputs/reactive-f
 import { HomeComponent } from './home/home.component';
 import { ApiComponent } from './api/api.component';
 
+import { HttpInterceptorProviders } from './interceptor';
+import { BackendApiComponent } from './backend-api/backend-api.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,7 @@ import { ApiComponent } from './api/api.component';
     ReactiveFormOutputsComponent,
     HomeComponent,
     ApiComponent,
+    BackendApiComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { ApiComponent } from './api/api.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    HttpInterceptorProviders
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

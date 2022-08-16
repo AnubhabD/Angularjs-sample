@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiData } from '../interfaces/api.interface';
-import { ApiService } from './api.service';
+
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-api',
@@ -20,16 +21,18 @@ export class ApiComponent implements OnInit {
     },
   ];
   error: string = '';
+  errorMsg: string = 'Page Not Found';
 
   constructor(private apiService: ApiService) {
-    this.apiService.getData().subscribe({
-      next: (data: ApiData[]) => {
-        this.apiData = data;
-        console.log(data);
+    this.apiService.getData()
+    .subscribe({
+      next: (response: ApiData[]) => {
+        this.apiData = response;
+        console.log(response);
       },
-      error: (e) => {
-        console.log(e, ' error message');
-        this.error = e.message;
+      error: (response) => {
+        this.error = response.status + ' Error';
+        // this.errorMsg = res.message;
       },
     });
   }

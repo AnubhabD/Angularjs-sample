@@ -1,0 +1,25 @@
+<div>
+  <div *ngIf="!booleanData" class="alert alert-warning">
+    <h1 style="text-align: center; font-weight: bold">{{ error }}</h1>
+  </div>
+  <div *ngIf="booleanData">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of apiData.data.list">
+          <td>{{ item._id }}</td>
+          <td>{{ item.fullName }}</td>
+          <td>{{ item.emailId }}</td>
+          <td *ngIf="item.usertype == 'U'">user</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

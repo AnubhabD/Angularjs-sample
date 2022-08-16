@@ -1,10 +1,10 @@
 <div id="home">
   <h1>Routing in Angular</h1>
-  <button>
-    <a routerLink="/form" style="text-decoration: none; color: black">
-      Reactive Form
-    </a>
-  </button>
-
-  <router-outlet></router-outlet>
+  <div style="display: flex; justify-content: space-between; width: 99%">
+    <button routerLink="/form">Reactive Form</button>
+    <button routerLink="/demoApi">Demo Api</button>
+    <button routerLink="/backendApi">Backend Api</button>
+  </div>
 </div>
+
+<router-outlet></router-outlet>
