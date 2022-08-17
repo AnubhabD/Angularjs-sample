@@ -8,6 +8,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ApiComponent } from './api/api.component';
 import { BackendApiComponent } from './backend-api/backend-api.component';
+import { ReduxComponent } from './redux/redux.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     path: 'templateForm',
     canActivate: [LoginGuard],
     component: TemplateFormComponent,
+  },
+  {
+    path: 'redux',
+    component: ReduxComponent
   },
 ];
 @NgModule({
