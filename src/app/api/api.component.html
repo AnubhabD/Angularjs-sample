@@ -1,0 +1,30 @@
+<div>
+  <h1 style="font-weight: bold; color: darkslategray">Api calling</h1>
+  <div *ngIf="error" class="alert alert-warning">
+    {{ error }}
+  </div>
+  <div *ngIf="!error">
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of apiData">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.username }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.phone }}</td>
+          <td>{{ item.website }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

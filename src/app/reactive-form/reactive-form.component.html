@@ -66,7 +66,7 @@
       </div>
     </div>
     <button class="btn btn-primary" style="width: 500px; margin-bottom: 10px">
-      Submit
+      Login
     </button>
   </form>
   <div *ngIf="submitted && userForm.valid">
@@ -74,15 +74,15 @@
       [data]="sendDataToChild"
     ></app-reactive-form-outputs>
   </div>
-  <div>
+  <div style="display: flex; justify-content: space-between; width: 200px">
     <button>
       <a routerLink="/templateForm" style="text-decoration: none; color: black">
         Template Form
       </a>
     </button>
-
-    <router-outlet></router-outlet>
+    <button (click)="onLogoutForm()" style="cursor: pointer">Logout</button>
   </div>
 </div>
+<router-outlet></router-outlet>
 
 <!-- [disabled] = "!userForm.valid" -->
