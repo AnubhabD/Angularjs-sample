@@ -40,7 +40,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
         }
         console.error(errorMsg);
-        console.error(error, "globalError");
+        console.error(error);
         throw error;
         // throw new Error(`${error.status}:${error.statusText}`);
       })

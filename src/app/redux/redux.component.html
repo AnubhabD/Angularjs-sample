@@ -1,7 +1,33 @@
-<div>Current Count: {{ count$ | async }}</div>
-<br>
-<button (click)="increment()">Increment</button>
-
-<button (click)="decrement()">Decrement</button>
-
-<button (click)="reset()">Reset Counter</button>
+<div>
+  <div *ngIf="!booleanData" class="alert alert-warning">
+    <h1 style="text-align: center; font-weight: bold">{{ error }}</h1>
+    <h1 style="text-align: center; font-weight: bold">{{ errorMsg }}</h1>
+  </div>
+  <div *ngIf="booleanData">
+    <table class="table table-striped table-bordered" *ngIf="booleanData">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">User Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Contact Number</th>
+          <th scope="col">Image</th>
+          <th scope="col">Registered</th>
+          <th scope="col">User Type</th>
+          <!-- <th scope="col">Action</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let item of postsData.reducerManager.dispatcher._value.post.data.list">
+          <td>{{ item._id }}</td>
+          <td>{{ item.fullName }}</td>
+          <td>{{ item.emailId }}</td>
+          <td>{{ item.contactNumber }}</td>
+          <td>{{ item.cover_picture }}</td>
+          <td>{{ item.created }}</td>
+          <td>{{ item.usertype }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
