@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../service/api.service';
 
-import { loadPosts, loadPostsSuccess } from './redux.actions';
+import {
+  // addPost,
+  loadPosts,
+  loadPostsSuccess,
+  // addPostSuccess,
+} from './redux.actions';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap } from 'rxjs';
@@ -26,4 +31,21 @@ export class PostsEffect {
     }
     // { dispatch: false }
   );
+
+  // apiDataPosts$ = createEffect(
+  //   () => {
+  //     return this.actions$.pipe(
+  //       ofType(addPost),
+  //       mergeMap((action) => {
+  //         return this.postsService.getPosts().pipe(
+  //           map((posts: any) => {
+  //             console.log('---------->', posts);
+  //             return addPostSuccess({ posts });
+  //           })
+  //         );
+  //       })
+  //     );
+  //   }
+  //   // { dispatch: false }
+  // );
 }

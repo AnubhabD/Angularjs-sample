@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let item of postsData.reducerManager.dispatcher._value.post.data.list">
+        <tr *ngFor="let item of postsData.reducerManager.dispatcher._value.post.data.list">
           <td>{{ item._id }}</td>
           <td>{{ item.fullName }}</td>
           <td>{{ item.emailId }}</td>
@@ -29,5 +29,25 @@
         </tr>
       </tbody>
     </table>
+    <div style="display: flex; justify-content: space-between; width: 99%">
+      <button
+        (click)="onAddPosts()"
+        style="cursor: pointer; padding-left:80px; padding-right:80px"
+      >
+        Add
+      </button>
+      <button
+        (click)="OnUpdatePosts()"
+        style="cursor: pointer; padding-left:80px; padding-right:80px"
+      >
+        Update
+      </button>
+      <button
+        (click)="OnDeletePosts(deletedPosts)"
+        style="cursor: pointer; padding-left:80px; padding-right:80px"
+      >
+        Delete
+      </button>
+    </div>
   </div>
 </div>

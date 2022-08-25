@@ -11,7 +11,7 @@ const schema = new Schema({
   is_Available:                   {type: Boolean, default: true },
   is_Active:                      {type: Boolean, default: false},                               // phone is_Active or not
   is_verified:                    {type: Boolean, default: false},  
-  distance:                       {type: String,  default:"5"},                                  // phone verified or not
+  distance:                       {type: String, default:"5"},                                  // phone verified or not
   password:                       {type: String},                                                // encrypted password
   usertype:                       {type: String},  
   device_Token:                   {type: String},  

@@ -2,7 +2,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { ApiData } from '../interfaces/api.interface';
-import { BackendApiData, ListingData } from '../interfaces/backend-api.interface';
+import {
+  BackendApiData,
+  ListingData,
+} from '../interfaces/backend-api.interface';
 
 import { catchError, map, Observable } from 'rxjs';
 
@@ -13,7 +16,6 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getData(): Observable<ApiData[]> {
-
     let url = 'https://jsonplaceholder.typicode.com/users';
     const api_data = this.http.get<ApiData[]>(url);
 
@@ -21,7 +23,6 @@ export class ApiService {
   }
 
   postDataToApi(data: BackendApiData): Observable<BackendApiData> {
-
     let url = 'http://localhost:6020/admin/user-api/user';
     const api_data = this.http.post<BackendApiData>(url, data);
 
@@ -29,7 +30,6 @@ export class ApiService {
   }
 
   getDataFromPostApi(): Observable<BackendApiData> {
-
     let url = 'http://localhost:6020/admin/user-api/user';
     const api_data = this.http.get<BackendApiData>(url);
     // .pipe(
@@ -41,10 +41,9 @@ export class ApiService {
     return api_data;
   }
 
-   getPosts(): Observable<ListingData[]> {
-
+  getPosts(): Observable<ListingData[]> {
     let url = 'http://localhost:6020/admin/user-api/user';
-    const api_data = this.http.get<ListingData[]>(url)
+    const api_data = this.http.get<ListingData[]>(url);
     // .pipe(
     //   map((data) => {
     //     const posts: ListingData[] = [];
@@ -56,6 +55,45 @@ export class ApiService {
     //   catchError((err: HttpErrorResponse) => {
     //     console.info('Error in get of post => ', JSON.stringify(err));
     //     throw new Error(`${err.status}:${err.statusText}`);
+    //   })
+    // );
+    return api_data;
+  }
+
+  addPosts(data: ListingData): Observable<ListingData> {
+
+    const url = 'http://localhost:6020/admin/user-api/user';
+    const api_data = this.http.post<ListingData>(url, data);
+    // .pipe(
+    //   catchError((err) => {
+    //     console.log('Error from post api=>', err);
+    //     throw Error(err.message);
+    //   })
+    // );
+    return api_data;
+  }
+
+  updatePosts(data: ListingData): Observable<ListingData> {
+
+    const url = 'http://localhost:6020/admin/user-api/user';
+    const api_data = this.http.put<ListingData>(url, data);
+    // .pipe(
+    //   catchError((err) => {
+    //     console.log('Error from post api=>', err);
+    //     throw Error(err.message);
+    //   })
+    // );
+    return api_data;
+  }
+
+  deletePosts(data: ListingData): Observable<ListingData> {
+
+    const url = 'http://localhost:6020/admin/user-api/user';
+    const api_data = this.http.delete<ListingData>(url);
+    // .pipe(
+    //   catchError((err) => {
+    //     console.log('Error from post api=>', err);
+    //     throw Error(err.message);
     //   })
     // );
     return api_data;

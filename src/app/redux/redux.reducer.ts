@@ -2,6 +2,7 @@
 // import { increment, decrement, reset } from './redux.actions';
 
 import { createReducer, on } from "@ngrx/store";
+import { ListingData } from "../interfaces/backend-api.interface";
 import { addPost, deletePost, loadPostsSuccess, updatePost } from "./redux.actions";
 import { initialState } from "./redux.state"
 
@@ -31,31 +32,34 @@ import { initialState } from "./redux.state"
 const _postsReducer = createReducer(
     initialState,
     on(addPost, (state, action) => {
-        let post = {...action.post};
+        let post = {...action.posts};
         post._id = (state.posts.length + 1).toString(); //state.post
         return {
             ...state,
             posts: [...state.posts, post], //state.post
         }
     }),
-    // on(updatePost, (state, action) => {
-    //     const updatedPosts = state.posts.map((post) => {
-    //         return action.post._id = post._id ? action.post : post;
-    //     });
-    //     return {
-    //         ...state,
-    //         posts: updatedPosts
-    //     };
-    // }),
-    // on(deletePost, (state, {id}) => {
-    //     const updatedPosts = state.posts.filter((post: { id: string; }) => {
-    //         return post.id !== id;
-    //     });
-    //     return {
-    //         ...state,
-    //         posts: updatedPosts,
-    //     };
-    // }),
+    on(updatePost, (state, action) => {
+        const updatedPosts = state.posts.map((post) => {
+            const data = ((action.post._id === post._id) ? action.post : post);
+            return data;
+        });
+        return {
+            ...state,
+            posts: updatedPosts
+        };
+    }),
+    on(deletePost, (state, {_id}) => {
+        const postToBeDeleted = state.posts.filter((post) => {
+            return post._id;
+            // const data = (post._id == _id);
+            // return data;
+        });
+        return {
+            ...state,
+            posts: postToBeDeleted,
+        };
+    }),
     on(loadPostsSuccess, (state, action) => {
         return {
             ...state,
