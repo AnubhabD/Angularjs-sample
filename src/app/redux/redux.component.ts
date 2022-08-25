@@ -41,6 +41,7 @@ export class ReduxComponent implements OnInit {
   booleanData: boolean = false;
   error: string = '';
   errorMsg: string = '';
+  status: boolean = false;
 
   postsData: any = {
     reducerManager: {
@@ -111,10 +112,18 @@ export class ReduxComponent implements OnInit {
         // console.log('rrrrrrrrr', this.postsData.source.source.reducerManager.dispatcher);
       },
       error: (response) => {
-        response.status === 0
-          ? (this.error = 503 + ' ' + 'Service Unavailable')
-          : ((this.error = response.status + ' ' + 'Error'),
-            (this.errorMsg = 'Page' + ' ' + response.statusText));
+        if(response.status === 0){
+          this.error = 503 + ' ' + 'Service Unavailable';
+        }
+        else{
+          this.error = response.status + ' ' + 'Error';
+          this.errorMsg = 'Page' + ' ' + response.statusText;
+          this.status = true;
+        }
+        // response.status === 0
+        //   ? (this.error = 503 + ' ' + 'Service Unavailable')
+        //   : ((this.error = response.status + ' ' + 'Error'),
+        //     (this.errorMsg = 'Page' + ' ' + response.statusText));
       },
     });
   }

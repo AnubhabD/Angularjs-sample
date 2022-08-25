@@ -1,10 +1,11 @@
 <div id="home">
   <h1>Routing in Angular</h1>
   <div style="display: flex; justify-content: space-between; width: 99%">
-    <button routerLink="/form">Reactive Form</button>
-    <button routerLink="/demoApi">Demo Api</button>
-    <button routerLink="/backendApi">Backend Api</button>
-    <button routerLink="/redux">Redux Example</button>
+    <button mat-button routerLink="/form">Reactive Form</button>
+    <button mat-button routerLink="/demoApi">Demo Api</button>
+    <button mat-button routerLink="/backendApi">Backend Api</button>
+    <button mat-button routerLink="/redux">Api using Redux</button>
+    <button mat-button (click)="openDialog()">Dialog</button>
   </div>
 </div>
 

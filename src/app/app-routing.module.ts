@@ -9,6 +9,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { ApiComponent } from './api/api.component';
 import { BackendApiComponent } from './backend-api/backend-api.component';
 import { ReduxComponent } from './redux/redux.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'redux',
     component: ReduxComponent
   },
+  {
+    path: 'dialog',
+    component: DialogComponent
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

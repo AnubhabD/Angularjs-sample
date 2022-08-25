@@ -1,7 +1,13 @@
 <div>
-  <div *ngIf="!booleanData" class="alert alert-warning">
-    <h1 style="text-align: center; font-weight: bold">{{ error }}</h1>
-    <div class="spinner-border text-primary" role="status">
+  <div>
+    <div *ngIf="!booleanData && !status" class="alert alert-warning">
+      <h1 style="text-align: center">{{ error }}</h1>
+    </div>
+    <div *ngIf="!booleanData && status" class="alert alert-warning">
+      <h1 style="text-align: center; font-weight: bold">{{ error }}</h1>
+      <h1 style="text-align: center; font-weight: bold">{{ errorMsg }}</h1>
+    </div>
+    <!-- <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
     <button class="btn btn-primary" type="button" disabled>
@@ -11,7 +17,7 @@
     <button class="btn btn-primary" type="button" disabled>
       <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
       Loading...
-    </button>
+    </button> -->
   </div>
   <div *ngIf="booleanData">
     <table class="table table-striped table-bordered">
