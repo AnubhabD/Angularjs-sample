@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -14,7 +15,7 @@ export class ReactiveFormComponent implements OnInit {
 
   sendDataToChild!: Partial<formInput>;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private location: Location) {}
 
   userForm = this.formBuilder.group({
     name: ['', Validators.compose([Validators.required])],
@@ -49,5 +50,9 @@ export class ReactiveFormComponent implements OnInit {
     // this.sendDataToChild = null;
     localStorage.clear();
     alert('You have succesfully logged out');
+  }
+
+  onClick() {
+    this.location.back();
   }
 }

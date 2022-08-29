@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +49,10 @@ import { ReduxModule } from './redux/redux.module';
     ReduxModule,
     MatDialogModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    MatIconModule,
+    MatInputModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
   ],
   providers: [HttpInterceptorProviders],
   bootstrap: [AppComponent],

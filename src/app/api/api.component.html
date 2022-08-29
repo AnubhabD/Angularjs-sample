@@ -3,10 +3,19 @@
     <h1 style="text-align: center; font-weight: bold">{{ error }}</h1>
     <h1 style="text-align: center; font-weight: bold">{{ errorMsg }}</h1>
   </div>
-  <div *ngIf="!error">
-    <h1 style="font-weight: bold; color: darkslategray; text-align: center">
-      Api calling
+  <div *ngIf="!error"> //&& pageEvent
+    <br />
+    <h1
+      style="
+        font-weight: bold;
+        color: darkslategray;
+        text-align: center;
+        text-decoration: underline;
+      "
+    >
+      Api calling In Angular
     </h1>
+    <br />
     <table class="table table-hover table-bordered">
       <thead class="thead-dark">
         <tr>
@@ -30,4 +39,12 @@
       </tbody>
     </table>
   </div>
+  <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = $event"
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </div>

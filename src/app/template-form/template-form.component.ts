@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-template-form',
@@ -11,10 +12,14 @@ export class TemplateFormComponent implements OnInit {
 
   model: any = {};
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   onSubmitForm() {
     console.log(this.model);
+  }
+
+  onClick() {
+    this.location.back();
   }
 
   ngOnInit(): void {}

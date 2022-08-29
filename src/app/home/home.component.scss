@@ -1,0 +1,22 @@
+.header {
+  text-align: center;
+  font-weight: bold;
+  color: darkslategray;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 99.5%;
+}
+
+.button1 {
+  color: white;
+  background-color: darkslategray;
+}
+
+.button2 {
+  background-color: lightgray;
+}

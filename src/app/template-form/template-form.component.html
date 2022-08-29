@@ -4,48 +4,66 @@
   <form
     #userForm="ngForm"
     name="form"
+    class="example-form"
     (ngSubmit)="userForm.form.valid && onSubmitForm()"
     novalidate
   >
-    <div style="margin-bottom: 10px">
-      <label for="name">Name </label>
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza">
+  </mat-form-field> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+      <!-- <div style="margin-bottom: 10px; width: 500px;" appearance="fill"> -->
+      <mat-label for="name">Name</mat-label>
       <input
         type="text"
-        class="form-control"
         name="name"
         #name="ngModel"
+        matInput
         [(ngModel)]="model.name"
         [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }"
         required
       />
       <div *ngIf="userForm.submitted && name.invalid">
-        <div *ngIf="name?.errors?.['required']">Name is required</div>
+        <mat-error *ngIf="name?.errors?.['required']"
+          >Name is required</mat-error
+        >
       </div>
-    </div>
-    <div style="margin-bottom: 10px">
-      <label for="email">Email </label>
+      <!-- </div> -->
+      <!-- <div style="margin-bottom: 10px; width: 500px;"> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label for="email">Email</mat-label>
       <input
         type="text"
-        class="form-control"
         name="email"
         #email="ngModel"
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        matInput
         [(ngModel)]="model.email"
         [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }"
         required
       />
       <div *ngIf="userForm.submitted && email.invalid">
-        <div *ngIf="email?.errors?.['required']">Email is required</div>
-        <div *ngIf="email?.errors?.['pattern']">Email is invalid</div>
+        <!-- <div *ngIf="email?.errors?.['required']">Email is required</div>
+        <div *ngIf="email?.errors?.['pattern']">Email is invalid</div> -->
+        <mat-error *ngIf="email?.errors?.['required']"
+          >Email is required</mat-error
+        >
+        <mat-error *ngIf="email?.errors?.['pattern']"
+          >Email is invalid</mat-error
+        >
       </div>
-    </div>
-    <div style="margin-bottom: 10px">
-      <label for="phoneNumber">Phone Number </label>
+    </mat-form-field>
+    <!-- </div> -->
+    <!-- <div style="margin-bottom: 10px; width: 500px;"> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label for="phoneNumber">Phone Number</mat-label>
       <input
         type="text"
-        class="form-control"
         name="phoneNumber"
         #phoneNumber="ngModel"
+        matInput
         pattern="[0-9]{1}[0-9]{9}"
         [(ngModel)]="model.phoneNumber"
         [ngClass]="{
@@ -53,15 +71,35 @@
         }"
         required
       />
-      <div *ngIf="userForm.submitted && phoneNumber.invalid">
-        <div *ngIf="phoneNumber?.errors?.['required']">
-          Phone Number is required
-        </div>
-        <div *ngIf="phoneNumber?.errors?.['pattern']">
-          Phone number must be of 10 digits
+      <!-- </mat-form-field> -->
+      <div>
+        <div *ngIf="userForm.submitted && phoneNumber.invalid">
+          <mat-error *ngIf="phoneNumber?.errors?.['required']">
+            Phone Number is required
+          </mat-error>
+          <mat-error *ngIf="phoneNumber?.errors?.['pattern']">
+            Phone number must be of 10 digits
+          </mat-error>
         </div>
       </div>
+    </mat-form-field>
+    <!-- </div> -->
+    <div>
+      <div style="display: flex; justify-content: space-between; width: 100%">
+        <button
+          mat-raised-button
+          style="color: white; background-color: darkslategray; width: 300px"
+          (click)="onClick()"
+        >
+          Back
+        </button>
+        <button
+          mat-raised-button
+          style="color: white; background-color: darkslategray; width: 300px"
+        >
+          Submit
+        </button>
+      </div>
     </div>
-    <button class="btn btn-primary">Submit</button>
   </form>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 import { ApiData } from '../interfaces/api.interface';
 
@@ -23,6 +24,12 @@ export class ApiComponent implements OnInit {
   error: string = '';
   errorMsg: string = 'Page Not Found';
 
+  length = 10;
+  pageSize = 5;
+  pageSizeOptions: number[] = [5, 10];
+
+  pageEvent!: PageEvent;
+
   constructor(private apiService: ApiService) {
     this.apiService.getData()
     .subscribe({
@@ -35,6 +42,12 @@ export class ApiComponent implements OnInit {
         // this.errorMsg = res.message;
       },
     });
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
   }
 
   ngOnInit(): void {}
