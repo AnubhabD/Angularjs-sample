@@ -26,6 +26,9 @@ import { DialogComponent } from './dialog/dialog.component';
 import { HttpInterceptorProviders } from './interceptor';
 
 import { ReduxModule } from './redux/redux.module';
+import { MaterialComponent } from './material/material.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { ReduxModule } from './redux/redux.module';
     ApiComponent,
     BackendApiComponent,
     DialogComponent,
+    MaterialComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,8 @@ import { ReduxModule } from './redux/redux.module';
     MatIconModule,
     MatInputModule,
     MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
     BrowserAnimationsModule,
   ],
   providers: [HttpInterceptorProviders],

@@ -10,6 +10,7 @@ import { ApiComponent } from './api/api.component';
 import { BackendApiComponent } from './backend-api/backend-api.component';
 import { ReduxComponent } from './redux/redux.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { MaterialComponent } from './material/material.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'dialog',
     component: DialogComponent
+  },
+  {
+    path: 'materialTable',
+    component: MaterialComponent
   }
 ];
 @NgModule({
