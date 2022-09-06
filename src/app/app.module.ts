@@ -3,11 +3,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ReduxModule } from './redux/redux.module';
+
+import { MaterialModule } from './material/material.module';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,13 +30,9 @@ import { ReactiveFormOutputsComponent } from './reactive-form-outputs/reactive-f
 import { ApiComponent } from './api/api.component';
 import { BackendApiComponent } from './backend-api/backend-api.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { MaterialComponent } from './material/material.component';
 
 import { HttpInterceptorProviders } from './interceptor';
-
-import { ReduxModule } from './redux/redux.module';
-import { MaterialComponent } from './material/material.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,10 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
+    MaterialModule,            // <----- this module will be deprecated in the future version.
+    MatDatepickerModule,        // <----- import(must)
+    MatNativeDateModule,        // <----- import for date formating(optional)
+    // MatMomentDateModule,
     BrowserAnimationsModule,
   ],
   providers: [HttpInterceptorProviders],

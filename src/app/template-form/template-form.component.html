@@ -29,7 +29,6 @@
           >Name is required</mat-error
         >
       </div>
-      <!-- </div> -->
       <!-- <div style="margin-bottom: 10px; width: 500px;"> -->
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
@@ -55,7 +54,6 @@
         >
       </div>
     </mat-form-field>
-    <!-- </div> -->
     <!-- <div style="margin-bottom: 10px; width: 500px;"> -->
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label for="phoneNumber">Phone Number</mat-label>
@@ -72,18 +70,39 @@
         required
       />
       <!-- </mat-form-field> -->
-      <div>
-        <div *ngIf="userForm.submitted && phoneNumber.invalid">
-          <mat-error *ngIf="phoneNumber?.errors?.['required']">
-            Phone Number is required
-          </mat-error>
-          <mat-error *ngIf="phoneNumber?.errors?.['pattern']">
-            Phone number must be of 10 digits
-          </mat-error>
-        </div>
+      <div *ngIf="userForm.submitted && phoneNumber.invalid">
+        <mat-error *ngIf="phoneNumber?.errors?.['required']">
+          Phone Number is required
+        </mat-error>
+        <mat-error *ngIf="phoneNumber?.errors?.['pattern']">
+          Phone number must be of 10 digits
+        </mat-error>
       </div>
     </mat-form-field>
-    <!-- </div> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        name="date"
+        #date="ngModel"
+        [(ngModel)]="model.date"
+        [ngClass]="{
+          'is-invalid': userForm.submitted && date.invalid
+        }"
+        required
+      />
+      <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker touchUi></mat-datepicker>
+      <div *ngIf="userForm.submitted && date.invalid">
+        <mat-error *ngIf="date?.errors?.['required']">
+          Date is required
+        </mat-error>
+      </div>
+    </mat-form-field>
     <div>
       <div style="display: flex; justify-content: space-between; width: 100%">
         <button

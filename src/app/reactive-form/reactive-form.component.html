@@ -65,7 +65,7 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-primary" style="width: 500px; margin-bottom: 10px">
+    <button mat-raised-button style="width: 500px; margin-bottom: 10px; color: white; background-color: darkslategray;">
       Login
     </button>
   </form>
@@ -74,32 +74,33 @@
       [data]="sendDataToChild"
     ></app-reactive-form-outputs>
   </div>
-  <div style="display: flex; justify-content: space-between; width: 72.5%">
+  <div style="display: flex; justify-content: space-between; width: 45%">
     <button
-      mat-icon-button
-      color="primary"
+      mat-stroked-button
       aria-label="Example icon button with a home icon"
-      style="color: darkslategrey;"
+      style="background-color: lightgray"
       (click)="onClick()"
     >
-      <mat-icon>home</mat-icon>
+      Back
     </button>
     <button
-      mat-raised-button
-      style="background-color: lightgray;"
+      mat-stroked-button
+      style="background-color: lightgray"
       routerLink="/templateForm"
     >
       Template Form
     </button>
     <button
-      mat-raised-button
+      mat-stroked-button
       (click)="onLogoutForm()"
-      style="cursor: pointer; background-color: lightgray;"
+      style="cursor: pointer; background-color: lightgray"
     >
       Logout
     </button>
   </div>
 </div>
+
+<!-- <pre>{{json | json}}</pre> -->
 <router-outlet></router-outlet>
 
 <!-- [disabled] = "!userForm.valid" -->

@@ -4,20 +4,40 @@
   <br />
   <br />
   <div class="buttons">
-    <button class="button1" mat-raised-button routerLink="/form">Reactive Form</button>
+    <button class="button2" mat-raised-button routerLink="/radio">
+      Radio Button
+    </button>
+    <button class="button1" mat-raised-button routerLink="/form">
+      Reactive Form
+    </button>
     <button class="button2" mat-raised-button routerLink="/templateForm">
       Template Form
     </button>
-    <button class="button1" mat-raised-button routerLink="/demoApi">Demo Api</button>
+    <button class="button1" mat-raised-button routerLink="/demoApi">
+      Demo Api
+    </button>
     <button class="button2" mat-raised-button routerLink="/backendApi">
       Backend Api
     </button>
     <button class="button1" mat-raised-button routerLink="/redux">
       Api using Redux
     </button>
-    <button class="button2" mat-raised-button (click)="openDialog()">Dialog</button>
+    <button
+      class="button2"
+      mat-raised-button
+      (click)="openDialog('titles1', 'descriptions1', 'footers1')"
+    >
+      Dialog
+    </button>
     <button class="button1" mat-raised-button routerLink="/materialTable">
       Material
+    </button>
+    <button
+      class="button2"
+      mat-raised-button
+      (click)="openDialog('titles2', 'descriptions2', 'footers2')"
+    >
+      Dialog2
     </button>
   </div>
 </div>

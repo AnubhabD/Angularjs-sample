@@ -14,31 +14,31 @@ export class ButtonComponent implements OnInit {
   options = {
     fruits: [
       {
-        item: 'orange',
+        item: 'Orange',
         img: 'https://freepngimg.com/thumb/orange/19-orange-png-image-download-thumb.png',
       },
       {
-        item: 'apple',
+        item: 'Apple',
         img: 'https://freepngimg.com/thumb/apple/9-apple-png-image-thumb.png',
       },
 
       {
-        item: 'banana',
+        item: 'Banana',
         img: 'https://freepngimg.com/thumb/banana/8-banana-png-image-thumb.png',
       },
     ],
     vegetables: [
       {
-        item: 'potato',
+        item: 'Potato',
         img: 'https://freepngimg.com/thumb/potato/7-potato-png-images-pictures-download-thumb.png',
       },
       {
-        item: 'tomato',
+        item: 'Tomato',
         img: 'https://freepngimg.com/thumb/tomato/6-tomato-png-image-thumb.png',
       },
 
       {
-        item: 'brinjal',
+        item: 'Brinjal',
         img: 'https://freepngimg.com/thumb/eggplant/14-eggplant-png-images-download-thumb.png',
       },
     ],

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { DialogComponent } from '../dialog/dialog.component';
@@ -9,6 +9,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+
   config: MatDialogConfig = {
     data: {
       props1: 'Install Angular',
@@ -19,16 +20,16 @@ export class HomeComponent implements OnInit {
       props12: 'Architecture overview',
     },
   };
+
   constructor(private dialog: MatDialog) {}
 
-  openDialog() {
+  openDialog(Titles: string, Desc: string, Footers: string) {
     const dialogRef = this.dialog.open(DialogComponent, this.config);
     // dialogRef.
-    dialogRef
-      .afterClosed()
-      .subscribe((result, props1 = 'check1', props2 = 'check2') => {
-        console.log(`Dialog result: ${result}`);
-      });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+    console.log('props data => ', Titles, Desc, Footers);
   }
 
   ngOnInit(): void {}

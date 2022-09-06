@@ -1,46 +1,193 @@
-<div class="example-container mat-elevation-z8">
-  <mat-table #table mat-table [dataSource]="dataSource" matSort>
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
-        No.
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.position }} </mat-cell>
-    </ng-container>
+<br />
+<div class="example-container">
+  <div class="inner-container mat-elevation-z8">
+    <div>
+      <mat-toolbar class="application-container">
+        <span class="inline">Data Table</span>
+        <span class="example-spacer"></span>
+        <button
+          class="example-icon"
+          mat-icon-button
+          aria-label="Example icon button with a open in new tab icon"
+          (click)="Goto()"
+        >
+          <mat-icon class="icon-color">open_in_new</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+    <div>
+      <mat-toolbar>
+        <div>
+          <button
+            mat-icon-button
+            class="example-icon"
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with menu icon"
+          >
+            <mat-icon class="icon-color" fontIcon="menu"></mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/form">
+              <mat-icon>dialpad</mat-icon>
+              <span>Reactive Form</span>
+            </button>
+            <button mat-menu-item disabled>
+              <mat-icon>voicemail</mat-icon>
+              <span>Check voice mail</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Disable alerts</span>
+            </button>
+          </mat-menu>
+        </div>
+        <!-- <span>Data Table</span> -->
+        <span class="example-spacer"></span>
+        <button
+          routerLink=""
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with home icon"
+        >
+          <mat-icon
+            class="icon-color"
+            aria-hidden="true"
+            fontIcon="home"
+          ></mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+    <div>
+      <mat-toolbar>
+        <mat-table
+          #table
+          mat-table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8"
+          matSort
+          cdkDropList
+          cdkDropListOrientation="horizontal"
+          (cdkDropListDropped)="tableDrop($event)"
+          (matSortChange)="sortData($event)"
+        >
+          <!-- Position Column -->
+          <mat-toolbar-row>
+            <ng-container matColumnDef="position">
+              <mat-header-cell
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                cdkDrag
+                cdkDragLockAxis="x"
+                cdkDragBoundary="mat-header-row"
+              >
+                <!----(cdkDragMoved)="dragMoved($event)"-->
+                <!-- <span class="resize-handle" (mousedown)="onResizeColumn($event, i)"></span> -->
+                No.
+              </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let element">
+                {{ element.position }}
+              </mat-cell>
+              <mat-footer-cell mat-footer-cell *matFooterCellDef
+                >{{ dataSource.data.length }} Records</mat-footer-cell
+              >
+            </ng-container>
+          </mat-toolbar-row>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        Name
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
-    </ng-container>
+          <!-- Name Column -->
+          <mat-toolbar-row>
+            <ng-container matColumnDef="name">
+              <mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                cdkDrag
+                cdkDragLockAxis="x"
+                cdkDragBoundary="mat-header-row"
+              >
+                Name
+              </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let element">
+                {{ element.name }}
+              </mat-cell>
+              <mat-footer-cell
+                mat-footer-cell
+                *matFooterCellDef
+              ></mat-footer-cell>
+              <!--{{ transactions.length / 2 }}-->
+            </ng-container>
+          </mat-toolbar-row>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        Weight
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.weight }} </mat-cell>
-    </ng-container>
+          <!-- Weight Column -->
+          <mat-toolbar-row>
+            <ng-container matColumnDef="weight">
+              <mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                cdkDrag
+                cdkDragLockAxis="x"
+                cdkDragBoundary="mat-header-row"
+              >
+                Weight
+              </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let element">
+                {{ element.weight }}
+              </mat-cell>
+              <mat-footer-cell mat-footer-cell *matFooterCellDef>
+                <!-- {{ getTotalWeight() | number }} -->
+              </mat-footer-cell>
+            </ng-container>
+          </mat-toolbar-row>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        Symbol
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.symbol }} </mat-cell>
-    </ng-container>
+          <!-- Symbol Column -->
+          <mat-toolbar-row>
+            <ng-container matColumnDef="symbol">
+              <mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                cdkDrag
+                cdkDragLockAxis="x"
+                cdkDragBoundary="mat-header-row"
+              >
+                Symbol
+              </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let element">
+                {{ element.symbol }}
+              </mat-cell>
+              <mat-footer-cell
+                mat-footer-cell
+                *matFooterCellDef
+              ></mat-footer-cell>
+            </ng-container>
+          </mat-toolbar-row>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr> -->
-  </mat-table>
+          <mat-toolbar-row>
+            <mat-header-row
+              #tableHeaderRow
+              mat-header-row
+              class="tableHeaderRow"
+              *matHeaderRowDef="displayedColumns; sticky: true"
+            ></mat-header-row>
+            <mat-row
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+            ></mat-row>
+            <mat-footer-row
+              mat-footer-row
+              class="mat-elevation-z4"
+              *matFooterRowDef="displayedColumns; sticky: true"
+            ></mat-footer-row>
+          </mat-toolbar-row>
+        </mat-table>
 
-  <mat-paginator
-    #paginator
-    [pageSize]="5"
-    [pageSizeOptions]="[5, 10, 20]"
-  ></mat-paginator>
+        <mat-paginator
+          #paginator
+          class="icon-color"
+          [pageSize]="5"
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+        >
+        </mat-paginator>
+      </mat-toolbar>
+    </div>
+  </div>
 </div>
